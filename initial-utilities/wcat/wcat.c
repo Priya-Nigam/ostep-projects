@@ -8,17 +8,21 @@ int main(int argc, char **argv) {
         char buff[255];
 
         //open file that user inputed
-	//read only 1st file 
-        FILE *file = fopen(argv[1], "r");
-        //check that file can be opened 
-        if (file  == NULL) {
-                printf("\nSorry! We cannot open that file\n");
-                exit(1);
-                //1 indicates failure 
-        }
-        //while we aren't at the end of file, get the line and print it
-        while(fgets(buff, 255, (FILE*) file)) {
-        	printf("%s",buff);
-	}
-        fclose(file);       
-} 
+	//read one file at a time       
+	for (int i = 1; i < argc; i++) {
+
+		FILE *file = fopen(argv[i], "r");
+        	//check that file can be opened 
+        	if (file  == NULL) {
+                	printf("wcat: cannot open file\n");
+                	exit(1);
+                	//1 indicates failure 
+      		}
+        	//while we aren't at the end of file, get the line and print it
+        	while(fgets(buff, 255, (FILE*) file)) {
+        		printf("%s",buff);
+		}
+	
+        	fclose(file); 
+	}      
+} 	
