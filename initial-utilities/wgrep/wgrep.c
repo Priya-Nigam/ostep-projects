@@ -17,7 +17,7 @@ int main(int argc, char **argv) {
 		for (int i = 2; i < argc; i++) { 
 			FILE *file = fopen(argv[i], "r");
 			if (file == NULL) {
-				printf("wgrep: cannot open file");
+				printf("wgrep: cannot open file\n");
 				exit(1);
 				//1 indicates failure
 			}
@@ -34,7 +34,8 @@ int main(int argc, char **argv) {
         		fclose(file); 
 		}
 	} else if (argc < 2 ) {
-		exit(0);
+		printf("wgrep: searchterm [file...]\n");
+		exit(1);
 	} else if (argc = 2) { //search for keyword from keyboard input
 		
 		//look thru each line and check for word 
@@ -48,5 +49,7 @@ int main(int argc, char **argv) {
              	}
         
             		
+	} else {
+		exit(0);
 	}
 }
