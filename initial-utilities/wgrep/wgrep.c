@@ -34,7 +34,7 @@ int main(int argc, char **argv) {
         		fclose(file); 
 		}
 	} else if (argc < 2 ) {
-		printf("wgrep: searchterm [file...]\n");
+		printf("wgrep: searchterm [file ...]\n");
 		exit(1);
 	} else if (argc = 2) { //search for keyword from keyboard input
 		
